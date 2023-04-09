@@ -1,0 +1,40 @@
+.btn{
+    display: flex;
+    align-items: center;
+
+
+   
+        max-width: 334px;
+    width: 100%;
+    position: relative;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #fff;
+    border: 1px solid #CAC4D0;
+
+span{
+    font-size: 16px;
+}
+.expandIcon{
+        position: absolute;
+        right: 27px;
+        transform: rotate(270deg);
+    } 
+       }
+  
+       .BetFormSubmit {
+        background: #EA3313;
+        height: 45px;
+        width: 304px;
+        border: none;
+        color: #fff;
+        border-radius: 100px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        margin-top: 35px;
+        margin-bottom: 35px;
+        cursor: pointer;
+    
+    }
+    

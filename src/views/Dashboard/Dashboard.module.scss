@@ -1,0 +1,210 @@
+.Dashboard {
+    // @media only screen and (max-width:767px) {
+    //     padding: 50px 0;
+    // }
+    table {
+        width: 100%;
+
+        th {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 19px;
+            text-align: left;
+            color: #000000;
+            padding: 11px 0;
+
+            &:first-child {
+                width: 45%;
+            }
+        }
+
+        td {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 19px;
+            text-align: left;
+            color: #000000;
+            padding: 11px 0;
+            border-top: 1px solid #000000;
+
+        }
+
+        tr {
+            &:last-child {
+                td {
+                    border-bottom: 1px solid #000000;
+                }
+            }
+        }
+    }
+}
+
+.BetForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 52px;
+    @media only screen and (max-width:767px) {
+        margin-top: 25px;
+    }
+}
+
+.BetFormFormLabel {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.BetFormInput {
+    background-color: transparent;
+    height: 45px;
+    width: 311px;
+    border: none;
+    color: #49454F;
+    border: 2px solid #000000;
+    border-radius: 3px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 12px 12px;
+
+    @media only screen and (max-width:767px) {
+        width: 232px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.BetFormSubmit {
+    background: #EA3313;
+    height: 45px;
+    width: 148px;
+    border: none;
+    color: #fff;
+    border-radius: 100px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    cursor: pointer;
+
+    @media only screen and (max-width:767px) {
+        width: 260px;
+    }
+}
+
+
+
+.ModalContent {
+    max-width: 283px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #79747E;
+    margin-top: 13px;
+    letter-spacing: -0.02em;
+}
+
+.ModalYesButton {
+    background: #EA3313;
+    height: 45px;
+    width: 148px;
+    border: none;
+    color: #fff;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    cursor: pointer;
+
+    @media only screen and (max-width:767px) {
+        width: 260px;
+    }
+}
+
+.ModalButton {
+    background: transparent;
+    height: 45px;
+    width: 148px;
+    border: none;
+    color: #EA3313;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    border: 2px solid #EA3313;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    cursor: pointer;
+
+    @media only screen and (max-width:767px) {
+        width: 260px;
+    }
+}
+
+.ButtonWrap {
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+    width: 100%;
+    gap: 20px;
+}
+
+.Table {
+    overflow: auto;
+    width: 100%;
+}
+
+
+// .hide{
+//     display: none;
+
+//     @media screen and (max-width: 468px){
+//         display: flex;
+//         h2{
+//             font-size: 16px;
+//         }
+//         h3{
+//             font-size: 12px;
+//         }
+//         img{
+//             color: #000;
+//         }
+//     }
+// }
+
+.mobilenav{
+    h2{
+        font-size: 14px;
+    }
+    h3{
+        font-size: 12px;
+        font-weight: 300;
+    }
+   
+        display: flex;
+    justify-content: space-between;
+    align-items: self-start;
+    padding: 19px;
+    max-width: 374px;
+    border-bottom: 2px solid #CAC4D0;
+    width: 100vw;
+    li{
+        display: flex;
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 7px
+        }
+    }
+}

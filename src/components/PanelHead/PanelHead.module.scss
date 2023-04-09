@@ -1,0 +1,140 @@
+.PannelHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+
+
+    .logo{
+        @media only screen and (max-width:468px) {
+            width: 110px;
+            padding: 12px 0;
+              }
+    }
+    nav {
+        position: relative;
+        ul {
+            display: flex;
+
+            @media only screen and (max-width:767px) {
+          display: none;
+            }
+
+            li {
+                display: flex;
+                margin-right: 50px;
+                text-align: left;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                @media only screen and (max-width:1024px) {
+                    margin-right: 20px;
+
+                }
+
+                @media only screen and (max-width:767px) {
+                    margin: 16px 0;
+                }
+
+                &:last-child {
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    margin-right: 0;
+
+                    a {
+                        margin-right: 0;
+                        margin-left: 34px;
+                        justify-content: center;
+                        align-items: center;
+                        display: flex;
+
+                        h3 {
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 21px;
+                            color: #fff;
+                        }
+
+                        img {
+                            margin-right: 0;
+                            margin-left: 15px;
+                        }
+                    }
+                }
+
+                &:nth-child(3) {
+                    border-right: 1px solid #fff;
+                    margin-right: 0;
+                    padding-right: 35px;
+
+                    @media only screen and (max-width:767px) {
+                        border: none;
+                    }
+                }
+
+                h2 {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: #fff;
+                }
+
+                img {
+                    margin-right: 12px;
+                    filter: invert(100%) grayscale(100%) brightness(10000%) contrast(100%);
+                }
+
+                h3 {
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+.logout{
+    color: #fff;
+
+
+    @media screen and (max-width:468px){
+        display: none;
+    }
+}
+
+// .Hamburger {
+//     display: none;
+//     cursor: pointer;
+
+//     @media only screen and (max-width:767px) {
+//         display: block;
+//         position: relative;
+//         z-index: 11;
+
+//         .Ham2active {
+//             opacity: 0;
+//         }
+
+//         .Ham1active {
+//             transform: translateY(8px) rotate(45deg);
+//         }
+
+//         .Ham3active {
+//             transform: translateY(-8px) rotate(-45deg);
+//         }
+//     }
+
+//     span {
+//         display: block;
+//         width: 25px;
+//         height: 3px;
+//         margin: 5px auto;
+//         -webkit-transition: ease-in-out all 0.3s;
+//         transition: ease-in-out all 0.3s;
+//         background-color: #000000;
+//     }
+// }
+
