@@ -1,52 +1,92 @@
 /* Modal Overlay */
-  .ModalOpen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(6, 6, 6, 0.4);
-    z-index: 999;
-    display: block;
-  }
-
-  .ModalClosed {
-    display: none;
-  }
-
-  /* Modal Window */
-  .Modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 312px;
-    height: auto;
-    border-radius: 28px;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    z-index: 1000;
-    padding-top: 70px;
-    padding-bottom: 61px;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    padding: 24px;
-    flex-direction: column;
-    @media only screen and (max-width:767px) {
-      width: 90%;
-      height: 350px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
-    @media only screen and (max-width:468px) {
-   height: auto;
-    }
-h4{
-  padding-left: 4px;
-  padding-top: 12px;
+.ModalOpen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(6, 6, 6, 0.4);
+  z-index: 999;
+  display: block;
 }
-  
- 
-  }
 
-  
+.ModalClosed {
+  display: none;
+}
+
+/* Modal Window */
+.Modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 28px;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  z-index: 1000;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+/* Modal Sizes */
+.ModalSmall {
+  width: 250px;
+  max-width: 90%;
+}
+.ModalMediumSmall{
+  width: 315px;
+  max-width: 90%;
+  min-height: 180px;
+}
+
+.ModalMedium {
+  width: 312px;
+  max-width: 90%;
+  min-height: 272px;
+  gap: 12px;
+
+  p{   
+    height: 100px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: #79747E;}
+}
+
+.ModalLarge {
+  width: 480px;
+  max-width: 90%;
+}
+
+/* Responsive */
+@media only screen and (max-width: 767px) {
+  .Modal {
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 468px) {
+  .Modal {
+    height: auto;
+  }
+}
+
+/* Modal Close Button */
+.CloseButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Modal Content */
+h4 {
+  padding-left: 4px;
+  padding-top: 5px;
+}

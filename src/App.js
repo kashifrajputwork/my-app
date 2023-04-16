@@ -19,9 +19,9 @@ function App() {
         <Route exact path={ROUTES.recover_password} element={<RecoverPassword />}></Route>
         <Route exact path={ROUTES.dashboard} element={<Dashboard />}>
         </Route>
-        <Route exact path="/dashboard/CreateBet" element={<Bet/>} />
-        <Route exact path="/dashboard/CancelBet" element={<Bet CancelBet={true}/>} />
-        <Route exact path="/dashboard/PremiumPayment" element={<Bet PremiumPayment={true}/>} />
+        <Route exact path={ROUTES.CreateBet} element={<Bet/>} />
+        <Route exact path={ROUTES.CancelBet} element={<Bet CancelBet={true}/>} />
+        <Route exact path={ROUTES.PremiumPayment} element={<Bet PremiumPayment={true}/>} />
 
         <Route exact path="/TicketCode" element={<Bet TicketCode={true} CancelBet={true}/>} />
       </Routes>

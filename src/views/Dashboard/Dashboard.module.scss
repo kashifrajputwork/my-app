@@ -44,7 +44,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-top: 52px;
+    margin-top: 8px;
     @media only screen and (max-width:767px) {
         margin-top: 25px;
     }
@@ -153,9 +153,10 @@
 .ButtonWrap {
     display: flex;
     justify-content: space-between;
-    max-width: 250px;
     width: 100%;
     gap: 20px;
+    margin-top: 30px;
+
 }
 
 .Table {
@@ -183,26 +184,34 @@
 
 .mobilenav{
     h2{
-        font-size: 14px;
+        font-size: 16px;
+        font-weight: 600;
     }
     h3{
         font-size: 12px;
-        font-weight: 300;
+        font-weight: 400;
     }
    
         display: flex;
     justify-content: space-between;
     align-items: self-start;
     padding: 19px;
+    margin: auto;
     max-width: 374px;
     border-bottom: 2px solid #CAC4D0;
     width: 100vw;
     li{
         display: flex;
+
+        img{
+            margin-bottom: 15px;
+            width: 16px;
+        }
         div{
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: start;
+            gap: 4px;
             justify-content: center;
             padding: 7px
         }

@@ -3,9 +3,10 @@ import styles from './button.module.scss'
 import { useNavigate } from "react-router-dom";
 import Modal from '../../constants/Modal';
 import camera from "../../assets/images/camera.svg";
+import Button from '../../constants/Button';
 
 
-const Button = (props) => {
+const ButtonTab = (props) => {
   const [activeTab, setActiveTab] = useState(0);
 const [show, setShow] = useState(false);
 const [showPreModal, setShowPreModal] = useState(false);
@@ -67,11 +68,11 @@ console.log(props.label, "asdasd")
                 To scan the tickets you must allow the website to use your
                 camera{" "}
               </p>
-              <input
-                className={styles.BetFormSubmit}
-                type="submit"
-                value="Ok, continue"
-              />
+              <Button
+                  // className={styles.BetFormSubmit}
+                  style={{marginTop: '10px'}}
+                  text="Ok, continue"
+                />
             </form>
             
       {/* <p className={styles.ModalContent}>
@@ -86,4 +87,4 @@ console.log(props.label, "asdasd")
   )
 }
 
-export default Button
+export default ButtonTab

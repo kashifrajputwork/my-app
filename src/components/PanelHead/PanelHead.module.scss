@@ -4,7 +4,7 @@
     align-items: center;
     position: relative;
     z-index: 999;
-
+    min-height: 80px;
 
     .logo{
         @media only screen and (max-width:468px) {
@@ -23,7 +23,7 @@
 
             li {
                 display: flex;
-                margin-right: 50px;
+                margin-right: 30px;
                 text-align: left;
                 justify-content: flex-start;
                 align-items: flex-start;
@@ -39,7 +39,7 @@
 
                 &:last-child {
                     justify-content: center;
-                    align-items: center;
+                    align-items: start;
                     display: flex;
                     margin-right: 0;
 
@@ -75,7 +75,7 @@
                 }
 
                 h2 {
-                    font-weight: 400;
+                    font-weight: 600;
                     font-size: 16px;
                     line-height: 19px;
                     color: #fff;
@@ -83,22 +83,34 @@
 
                 img {
                     margin-right: 12px;
-                    filter: invert(100%) grayscale(100%) brightness(10000%) contrast(100%);
                 }
 
                 h3 {
                     font-weight: 400;
-                    font-size: 14px;
+                    font-size: 12px;
+                    letter-spacing: 0.4px;
                     line-height: 19px;
                     color: #fff;
                 }
             }
         }
+        a{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 12px;
+            @media screen and (max-width: 468px) {
+                padding: 12px 14px !important;
+                background: #5C9D27;
+                border-radius: 100%;
+            }
+        }
     }
+    
 }
 .logout{
     color: #fff;
-
+    font-size: 16px;
 
     @media screen and (max-width:468px){
         display: none;

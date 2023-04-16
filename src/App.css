@@ -35,7 +35,7 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #F5F5F5;
 }
 
@@ -95,7 +95,19 @@ p {
 .custom-toast-body-class .Toastify__toast-icon {
   display: none;
 }
-
+.custom-toast-check-icon{
+  position: relative;
+  width: 100%;
+}
+.custom-toast-check-icon:before {
+  color: white;
+  background-image: url('./assets/images/tickIcon.svg');
+  background-size: cover;
+  font-size: 1.5em;
+  margin-right: 10px;
+  position: absolute;
+  left: 12px;
+}
 .Toastify__toast {
   padding: 0 !important;
 }
@@ -110,6 +122,22 @@ p {
 
 .Toastify__toast-icon {
   display: none !important;
+}
+
+.ModalButton{
+  background: #EA3313;
+  width: 146px;
+  border: none;
+  color: #fff;
+  border-radius: 100px;
+  font-weight: 400;
+  font-size: 14px;
+padding: 20px;
+  cursor: pointer;
+position: absolute;
+bottom: 12px;
+right: 10px;
+
 }
 
 @keyframes App-logo-spin {

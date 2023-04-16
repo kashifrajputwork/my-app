@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import expand from "../../assets/images/expand_more.svg";
-import Button from '../../components/button';
 import styles from './BetTicket.module.scss'
 import { useNavigate } from 'react-router-dom';
 import Modal from '../../constants/Modal';
+import ButtonTab from '../../components/button';
+import Button from '../../constants/Button';
 
 const Bet = (props) => {
   const navigate = useNavigate();
@@ -45,30 +46,44 @@ const Bet = (props) => {
   />
 </form> : 
 <>
-<p style={{margin: "12px"}}>How do you want to create a new bet?</p>
+<p style={{margin: "12px 12px 12px 23px", textAlign: 'left', fontWeight: '500', fontSize: '16px'}}>How do you want to create a new bet?</p>
 
-      <Button   label="Scan ticket"
+      <ButtonTab   label="Scan ticket"
     
         expandIcon={expand}/>
-      <Button route="/TicketCode"   label="Enter the ticket code"  expandIcon={expand}/>
+      <ButtonTab route="/TicketCode"   label="Enter the ticket code"  expandIcon={expand}/>
       </>
           }
    
 
         </div>
     
-        <Modal show={showModal} handleClose={handleCancelBet}>
-      <h4>Cancel bet</h4> 
+        <Modal size="mediumSmall" show={showModal} handleClose={handleCancelBet}>
+        <h4>Cancel bet</h4>
         <p className={styles.ModalContent}>
-          Are you sure you want to cancel the bet
+          Are you sure you want to cancel the bet?
         </p>
         <div className={styles.ButtonWrap}>
-          <button className={styles.ModalButton} onClick={handleCancelBet}>
-            No, go back
-          </button>
-          <button className={styles.ModalYesButton} >
-            Yes, 
-          </button>
+          <Button
+            style={{
+              width: "148px",
+              margin: "34px 0 0 auto",
+              height: "auto",
+              padding: "13px",
+            }}
+            className={styles.ModalButton}
+            text="No, go back"
+            onClick={handleCancelBet}
+          />
+          <Button
+            style={{
+              width: "148px",
+              margin: "34px 0 0 auto",
+              height: "auto",
+              padding: "13px",
+            }}
+            text="Yes, cancel"
+          />
         </div>
       </Modal>
      

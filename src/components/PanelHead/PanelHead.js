@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Logo from "../../assets/images/Logo.svg";
 import { Link } from "react-router-dom";
-import User from "../../assets/images/user.svg";
-import Manager from "../../assets/images/manager.svg";
-import Establishment from "../../assets/images/establishment.svg";
+import User from "../../assets/images/newIcons/person.svg";
+import Manager from "../../assets/images/newIcons/manage_accounts.svg";
+import Establishment from "../../assets/images/newIcons/establishment.svg";
 import Logout from "../../assets/images/logout.svg";
 import styles from "./PanelHead.module.scss";
 
@@ -45,7 +45,7 @@ const PannelHead = () => {
             </li>
           
           </ul>
-              <Link to="/" style={{display: 'flex', alignItems: 'center', padding: '0 12px'}}>
+              <Link to="/">
                 <h3 className={styles.logout} >Log out</h3>
                 <img src={Logout} alt="logout" />
               </Link>
