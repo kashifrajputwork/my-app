@@ -30,7 +30,7 @@ const ForgotPassword = () => {
                         <h2>Enter your username</h2>
                         <form className={styles.ForgetForm}>
                             <InputField placeholder="User" />
-                            <Button type="submit"  text="Continue" onClick={Navigate} />
+                            <Button style={{margin: '32px 0'}}  type="submit"  text="Continue" onClick={Navigate} />
                         </form>
                 </div>
             </div>

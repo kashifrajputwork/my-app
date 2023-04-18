@@ -37,14 +37,17 @@ const Login = () => {
         <div className={styles.Login}>
           <Link to="/"><img src={Logo} alt="logo" /></Link>
           <form className={styles.LoginForm}>
+            <div className={styles.inputWrapper}>
             <InputField
             type='text'
               placeholder="User"
               value={userLoginText}
               onChange={(e) => setUserLoginText(e.target.value)}
             />
-            <InputField type='password' placeholder="Password" img={Eye} />
-            <Button style={{margin: '26px auto 18px auto'}} onClick={NavigteToDashboard} text="Sign In" />
+            <InputField
+ type='password' placeholder="Password" img={Eye} />
+            </div>
+            <Button style={{margin: '32px auto 24px auto'}} onClick={NavigteToDashboard} text="Sign In" />
           </form>
           <div className={styles.forgotPasswordWrapper}>
             <span className={styles.forgotPasswordText}>Forgot password?</span>

@@ -20,6 +20,12 @@ const RecoverPassword = () => {
         bodyClassName: 'custom-toast-body-class',
       });
     };
+    const handleOpen = (e) => {
+        e.preventDefault();
+      setShowModal(!showModal);
+    
+    };
+    
   return (
     <div className={styles.RecoverPasswordWrapper}>
       <div className={styles.RecoverInner}>
@@ -42,15 +48,18 @@ const RecoverPassword = () => {
           </ul>
 
           <form className={styles.RecoverForm}>
+            <div className={styles.inputWrapper}>
             <InputField type="password" placeholder="New Password" img={Eye} />
 
-            <InputField
-              type="password"
-              placeholder="Confirm new Password"
-              img={Eye}
-            />
+<InputField
+  type="password"
+  placeholder="Confirm new Password"
+  img={Eye}
+/>
+            </div>
+          
 
-            <Button type="submit" text="Continue" onClick={handleClose}/>
+            <Button type="submit" text="Continue" onClick={handleOpen}/>
           </form>
         </div>
       </div>

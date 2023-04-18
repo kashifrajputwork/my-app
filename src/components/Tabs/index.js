@@ -1,67 +1,102 @@
 import React, { useEffect, useState } from "react";
-import styles from './TabsNav.module.scss'
-import { useMediaQuery } from "react-responsive";
+import styles from "./TabsNav.module.scss";
 
 const Tabs = ({ children }) => {
-
   const [activeTab, setActiveTab] = useState(0);
-  const [show, setShow] = useState(false);
+  const childToDeactivate = children[activeTab];
+  const [lastFocusedButton, setLastFocusedButton] = useState(null);
+
+  useEffect(() => {
+    handleTabClick(1);
+  }, []);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
 
-  const [lastFocusedButton, setLastFocusedButton] = useState(null);
-  const childToDeactivate = children[activeTab];
-const handleFocus = (event) => {
-  // Remove 'focused' class from last focused button
-  if (lastFocusedButton) {
-    lastFocusedButton.classList.remove(styles.focused);
-    childToDeactivate.props.setScanTicket(false);
-  }
+  const handleFocus = (event) => {
+    event.target.classList.remove(styles.focused);
 
-  // Add 'focused' class to current button
-  event.target.classList.add(styles.focused);
-  childToDeactivate.props.setScanTicket(true);
+    if (lastFocusedButton) {
+      lastFocusedButton.classList.remove(styles.focused);
+      childToDeactivate.props.setScanTicket(false);
+    }
 
-  // Set the last focused button
-  setLastFocusedButton(event.target);
-};
+    event.target.classList.add(styles.focused);
+    childToDeactivate.props.setScanTicket(true);
 
-useEffect(()=>{
-  handleTabClick(1)
-}, [])
+    setLastFocusedButton(event.target);
+  };
 
   return (
-    <div>
-<div className={styles.TabsNav} style={{ height: show ? "114px" : null }} onMouseLeave={()=> setShow(false)}>
-        {React.Children.map(children, (child, index) => (
-          <div style={{display: "flex", flexDirection: "column"}} >
-          <button onClick={() => handleTabClick(index)} className={activeTab === index ? `${styles.Active}` : styles.nonActive}>
-           <img src={child.props.icon}/>
-           <span>{child.props.label}</span> 
-           <img src={child.props.expandIcon} onMouseEnter={()=> setShow(true)} />
-          </button>
-          {activeTab === index && show &&
-      <div className={styles.betDropdown}>
-        <button onFocus={handleFocus}>Scan ticket</button>
-        <button onFocus={handleFocus} onClick={()=>  childToDeactivate.props.setScanTicket(false)}>Insert ticket code</button>
-      </div>
-          }
-      </div>
-        ))}
-      </div>
-      <div className={styles.TabContent}>
-        {React.Children.map(children, (child, index) =>
-          index === activeTab ? child : null
-        )}
-      </div>
+    <div >
+      <TabsNav
+        children={children}
+        activeTab={activeTab}
+        handleTabClick={handleTabClick}
+        handleFocus={handleFocus}
+      />
+      <TabContent children={children} activeTab={activeTab} />
     </div>
   );
 };
 
+const TabsNav = ({ children, activeTab, handleTabClick, handleFocus }) => (
+  <div className={styles.TabsNav}>
+    {React.Children.map(children, (child, index) => (
+      <TabButton
+        child={child}
+        index={index}
+        isActive={activeTab === index}
+        handleTabClick={handleTabClick}
+        handleFocus={handleFocus}
+      />
+    ))}
+  </div>
+);
 
-const Tab = ({ children}) => {
+const TabButton = ({ child, index, isActive, handleTabClick, handleFocus }) => {
+  const { icon, label, expandIcon } = child.props;
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <button
+        onClick={() => handleTabClick(index)}
+        className={isActive ? `${styles.Active}` : styles.nonActive}
+      >
+        <img src={icon} />
+        <span className={styles.label}>{label}</span>
+        <img src={expandIcon} />
+      </button>
+      {isActive && expandIcon && (
+        <BetDropdown child={child} handleFocus={handleFocus} />
+      )}
+    </div>
+  );
+};
+
+const BetDropdown = ({ child, handleFocus }) => (
+  <div className={styles.betDropdown}>
+    <button onFocus={handleFocus}>Scan ticket</button>
+    <button
+      className={styles.focused}
+      onFocus={handleFocus}
+      onClick={() => child.props.setScanTicket(false)}
+    >
+      Insert ticket code
+    </button>
+  </div>
+);
+
+const TabContent = ({ children, activeTab }) => (
+  <div className={styles.TabContent}>
+    {React.Children.map(children, (child, index) =>
+      index === activeTab ? child : null
+    )}
+  </div>
+);
+
+const Tab = ({ children }) => {
   return <div className="container">{children}</div>;
 };
 

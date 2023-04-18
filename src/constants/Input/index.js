@@ -18,14 +18,14 @@ const InputField = ({
   };
 
   return (
-    <div className={img ? styles.input : ''}>
+    <div         style={style}
+    className={styles.input}>
       <input
         type={inputType}
         value={value}
-        style={style}
         onChange={onChange}
         placeholder={placeholder}
-        className={`${!img && styles.input} ${className}`}
+        className={`${className}`}
         {...props}
       />
       {img && <img src={img} alt="" onClick={togglePasswordVisibility} />}

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Modal from '../../constants/Modal';
 import ButtonTab from '../../components/button';
 import Button from '../../constants/Button';
+import InputField from '../../constants/Input';
 
 const Bet = (props) => {
   const navigate = useNavigate();
@@ -33,15 +34,13 @@ const Bet = (props) => {
         <div style={{display: 'flex', gap: '14px', marginTop: '34px', flexDirection: 'column'}}>
           {props.TicketCode ?
   <form className={styles.BetForm}>
-  <input
-    className={styles.BetFormInput}
+  <InputField
+  style={{width: '334px'}}
     type="text"
     placeholder="Ticket Code"
   />
-  <input
-    className={styles.BetFormSubmit}
-    type="submit"
-    value={props.CancelBet ? "Cancel" : "Create"}
+  <Button
+    text={props.CancelBet ? "Cancel" : "Create"}
     onClick={handleOpen}
   />
 </form> : 

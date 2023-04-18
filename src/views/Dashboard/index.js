@@ -72,29 +72,6 @@ const Dashboard = () => {
         <Mobile />
       ) : (
         <Tabs>
-          <ul>
-            <li>
-              <img src={User} alt="user" />
-              <div>
-                <h2>User</h2>
-                <h3>C000001</h3>
-              </div>
-            </li>
-            <li>
-              <img src={Establishment} alt="establishment" />
-              <div>
-                <h2>Establishment</h2>
-                <h3>MMMMMM.EE</h3>
-              </div>
-            </li>
-            <li>
-              <img src={Manager} alt="manager" />
-              <div>
-                <h2>Manager</h2>
-                <h3>G000001</h3>
-              </div>
-            </li>
-          </ul>
           <Tab
             label="Create new bet"
             icon={scanner}

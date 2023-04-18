@@ -44,7 +44,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-top: 8px;
+    margin-top: 32px;
     @media only screen and (max-width:767px) {
         margin-top: 25px;
     }
@@ -195,17 +195,13 @@
         display: flex;
     justify-content: space-between;
     align-items: self-start;
-    padding: 19px;
-    margin: auto;
-    max-width: 374px;
-    border-bottom: 2px solid #CAC4D0;
-    width: 100vw;
+    padding: 20px 0 24px 0;
+    width: 280px;
     li{
         display: flex;
 
         img{
             margin-bottom: 15px;
-            width: 16px;
         }
         div{
             display: flex;

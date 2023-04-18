@@ -13,7 +13,7 @@ import ButtonTab from '../../components/button';
 const Mobile = () => {
  
   return (
-    <>
+    <div style={{minWidth: '335px', padding: '0 20px'}}>
         
     <ul className={styles.mobilenav}>
         <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -43,8 +43,8 @@ const Mobile = () => {
        
         
         </ul>
-        <div style={{display: 'flex', gap: '14px', alignItems: 'start', marginTop: '34px', flexDirection: 'column', padding: '0 14px'}}>
-          <h3 style={{paddingLeft: '10px', fontSize: '22px', fontWeight: '400'}}>Bets</h3>
+        <div style={{display: 'flex', gap: '14px', alignItems: 'start', paddingTop: '24px',borderTop: '1.4px solid #CAC4D0', flexDirection: 'column'}}>
+          <h3 style={{fontSize: '22px', fontWeight: '400'}}>Bets</h3>
       <ButtonTab   label="Create new bet"
         icon={scanner}
         route="CreateBet"
@@ -57,7 +57,7 @@ const Mobile = () => {
     
    
      
-      </>
+      </div>
   )
 }
 
