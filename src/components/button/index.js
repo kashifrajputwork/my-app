@@ -22,14 +22,15 @@ const handleClosePreBet = () => {
 const handleTabClick = (index) => {
   setActiveTab(index);
 };
-
+const val = props.val
 
 const navigate = useNavigate();
 
   function handleClick(e) {
+    console.log(val,props.val, "sdfsdfdsf")
     if(props.route){
 
-      navigate(props.route);
+      navigate(props.route, { state:  props.val });
     }
 console.log(props.label, "asdasd")
     if(props.label == "Scan ticket"){
@@ -44,9 +45,9 @@ console.log(props.label, "asdasd")
     <>
         <div style={{display: "flex", width: "100%", justifyContent: "center"}}>
         <button className={styles.btn} onClick={handleClick}>
-          <div style={{display: 'flex', gap: '15px'}}>
-         <img src={props.icon}/>
-         <span>{props.label}</span> 
+          <div style={{display: 'flex', gap: '14px'}}>
+        {props.icon && <img src={props.icon} style={{paddingLeft: '22px'}}/>}
+         <span style={!props?.icon ? {paddingLeft: '20px'}: null}>{props.label}</span> 
           </div>
          <img className={styles.expandIcon} src={props.expandIcon} onClick={()=> setShow(!show)}/>
         </button>
@@ -54,17 +55,10 @@ console.log(props.label, "asdasd")
     </div>
       <Modal show={showPreModal} handleClose={handleClosePreBet}>
       <form
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "12px",
-                display: "flex",
-                flexDirection: "column",
-              }}
               className={styles.BetForm}
             >
               <img src={camera} />
-              <p style={{fontSize: '22px'}}>
+              <p>
                 To scan the tickets you must allow the website to use your
                 camera{" "}
               </p>

@@ -6,6 +6,7 @@ import Modal from '../../constants/Modal';
 import ButtonTab from '../../components/button';
 import Button from '../../constants/Button';
 import InputField from '../../constants/Input';
+import { toast } from 'react-toastify';
 
 const Bet = (props) => {
   const navigate = useNavigate();
@@ -15,7 +16,12 @@ const Bet = (props) => {
     navigate("/");
   }
   const handleCancelBet = () => {
+    toast.success("Successfully canceled bet", {
+      position: toast.POSITION.TOP_CENTER
+    });
     setShowModal(false);
+
+   
   };
   const handleOpen = (e) => {
     e.preventDefault();
@@ -26,12 +32,12 @@ const Bet = (props) => {
     <div className={styles.top}>
       <img onClick={handleGoBack} src={expand}/>
       {props.CancelBet ?
-        <h4>Cancel new bet</h4>
+        <h4>Cancel bet</h4>
 : props.PremiumPayment ?<h4>Premium Payment</h4> : <h4>Create new bet</h4>
       }
     </div>
     
-        <div style={{display: 'flex', gap: '14px', marginTop: '34px', flexDirection: 'column'}}>
+        <div style={{display: 'flex', gap: '12px',  flexDirection: 'column'}}>
           {props.TicketCode ?
   <form className={styles.BetForm}>
   <InputField
@@ -40,24 +46,25 @@ const Bet = (props) => {
     placeholder="Ticket Code"
   />
   <Button
+  style={{width: '334px'}}
     text={props.CancelBet ? "Cancel" : "Create"}
     onClick={handleOpen}
   />
 </form> : 
 <>
-<p style={{margin: "12px 12px 12px 23px", textAlign: 'left', fontWeight: '500', fontSize: '16px'}}>How do you want to create a new bet?</p>
+<p style={{margin: "50px 12px 12px 24px", textAlign: 'left', fontWeight: '500', fontSize: '16px'}}>{props.CancelBet ? 'How do you want to cancel the bet?': 'How do you want to create a new bet?'}</p>
 
       <ButtonTab   label="Scan ticket"
     
         expandIcon={expand}/>
-      <ButtonTab route="/TicketCode"   label="Enter the ticket code"  expandIcon={expand}/>
+      <ButtonTab route="/TicketCode" val={props.CancelBet ? 'cancel' : 'create'}   label="Enter the ticket code"  expandIcon={expand}/>
       </>
           }
    
 
         </div>
     
-        <Modal size="mediumSmall" show={showModal} handleClose={handleCancelBet}>
+        <Modal size="mediumSmall" show={showModal} handleClose={()=>  setShowModal(false)}>
         <h4>Cancel bet</h4>
         <p className={styles.ModalContent}>
           Are you sure you want to cancel the bet?
@@ -72,16 +79,16 @@ const Bet = (props) => {
             }}
             className={styles.ModalButton}
             text="No, go back"
-            onClick={handleCancelBet}
-          />
+            />
           <Button
+            onClick={handleCancelBet}
             style={{
               width: "148px",
               margin: "34px 0 0 auto",
               height: "auto",
               padding: "13px",
             }}
-            text="Yes, cancel"
+            text="Yes"
           />
         </div>
       </Modal>

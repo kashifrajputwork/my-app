@@ -184,12 +184,19 @@
 
 .mobilenav{
     h2{
-        font-size: 16px;
         font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: 0.5px;
+        color: #49454F;
+        
     }
     h3{
         font-size: 12px;
         font-weight: 400;
+        line-height: 14px;
+        letter-spacing: 0.4px;
+        color: #49454F;
     }
    
         display: flex;

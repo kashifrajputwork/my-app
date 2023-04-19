@@ -7,7 +7,7 @@ const Tabs = ({ children }) => {
   const [lastFocusedButton, setLastFocusedButton] = useState(null);
 
   useEffect(() => {
-    handleTabClick(1);
+    handleTabClick(0);
   }, []);
 
   const handleTabClick = (index) => {
@@ -56,7 +56,7 @@ const TabsNav = ({ children, activeTab, handleTabClick, handleFocus }) => (
 );
 
 const TabButton = ({ child, index, isActive, handleTabClick, handleFocus }) => {
-  const { icon, label, expandIcon } = child.props;
+  const { icon, label, expandIcon, dontshow } = child.props;
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -68,7 +68,7 @@ const TabButton = ({ child, index, isActive, handleTabClick, handleFocus }) => {
         <span className={styles.label}>{label}</span>
         <img src={expandIcon} />
       </button>
-      {isActive && expandIcon && (
+      {isActive && expandIcon && dontshow &&(
         <BetDropdown child={child} handleFocus={handleFocus} />
       )}
     </div>

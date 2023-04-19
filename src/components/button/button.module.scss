@@ -1,40 +1,52 @@
-.btn{
-    display: flex;
-    align-items: center;
+.btn {
+  display: flex;
+  align-items: center;
 
-
-   
-        max-width: 334px;
-    width: 100%;
-    position: relative;
-    padding: 16px 20px;
-    border-radius: 12px;
-    background-color: #fff;
-    border: 1px solid #CAC4D0;
-
-span{
+  max-width: 334px;
+  width: 100%;
+  position: relative;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #cac4d0;
+    height: 56px;
+  span {
+    font-weight: 400;
     font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #49454F;
+    
+  }
+  .expandIcon {
+    position: absolute;
+    right: 20px;
+    transform: rotate(270deg);
+  }
 }
-.expandIcon{
-        position: absolute;
-        right: 27px;
-        transform: rotate(270deg);
-    } 
-       }
-  
-       .BetFormSubmit {
-        background: #EA3313;
-        height: 45px;
-        width: 304px;
-        border: none;
-        color: #fff;
-        border-radius: 100px;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 19px;
-        margin-top: 35px;
-        margin-bottom: 35px;
-        cursor: pointer;
-    
-    }
-    
+
+.BetFormSubmit {
+  background: #ea3313;
+  height: 45px;
+  width: 304px;
+  border: none;
+  color: #fff;
+  border-radius: 100px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  cursor: pointer;
+}
+
+.BetForm {
+
+
+  p {
+    font-size: 22px;
+    margin: 24px 0 32px 0;
+    font-weight: 400;
+    line-height: 28px;
+    color: #49454f;
+  }
+}

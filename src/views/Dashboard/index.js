@@ -12,9 +12,6 @@ import emoji from "../../assets/images/emoji_events.svg";
 import camera from "../../assets/images/camera.svg";
 import scan from "../../assets/images/scan_barcode.svg";
 import Frame from "../../assets/images/Frame.svg";
-import User from "../../assets/images/user.svg";
-import Manager from "../../assets/images/manager.svg";
-import Establishment from "../../assets/images/establishment.svg";
 import Mobile from "./Mobile";
 import { useMediaQuery } from "react-responsive";
 import Button from "../../constants/Button";
@@ -29,11 +26,12 @@ const Dashboard = () => {
   const handleCloseToast = () => {
     setShowModal(false);
     toast.success("Successfully canceled bet", {
-      toastClassName: "custom-toast-container-success-class",
-      bodyClassName: "custom-toast-body-success-class",
+      position: toast.POSITION.TOP_RIGHT
     });
-  };
+  
 
+  
+  }
   const handleCancelBet = () => {
     setShowModal(false);
   };
@@ -45,23 +43,17 @@ const Dashboard = () => {
 
   const handleOpenCreateBet = (e) => {
     e.preventDefault();
-    toast.success("Successfully registered bet", {
-      toastClassName: "custom-toast-container-success-class",
-      bodyClassName: "custom-toast-body-success-class custom-toast-check-icon",
-    });
   };
 
-  const handleOpenPreBet = (e) => {
-    e.preventDefault();
-    toast.success("Successfully registered bet", {
-      toastClassName: "custom-toast-container-success-class",
-      bodyClassName: "custom-toast-body-success-class",
-    });
-    setShowPreModal(true);
-  };
+  // const handleOpenPreBet = (e) => {
+  //   e.preventDefault();
+  //   setShowPreModal(true);
+  // };
 
   const handleClosePreBet = () => {
     setShowPreModal(false);
+ 
+  
   };
 
   return (
@@ -77,6 +69,8 @@ const Dashboard = () => {
             icon={scanner}
             expandIcon={expand}
             setScanTicket={setScanTicket}
+            dontshow={true}
+
           >
             {ScanTicket ? (
               ScanCode ? (
@@ -133,6 +127,7 @@ const Dashboard = () => {
             icon={cancel}
             setScanTicket={setScanTicket}
             expandIcon={expand}
+            dontshow={false}
           >
             <form className={styles.BetForm}>
               <InputField  style={{width: '400px'}}  placeholder="Label" type="text" />
@@ -150,14 +145,18 @@ const Dashboard = () => {
           >
             {ScanCode ? (
               <>
-                <img src={scan} style={{ maxWidth: "100%" }} />
+                <img src={scan} style={{ maxWidth: "100%", margin: '32px 0 27px 0' }} />
                 <p
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "12px",
-                    marginTop: "12px",
+                    fontWeight: 400,
+                    fontSize: '22px',
+                    lineHeight: '28px',
+                    color: '#49454F'
+
                   }}
                 >
                   <img src={Frame} /> Put the barcode on the center of the
