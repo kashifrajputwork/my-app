@@ -181,7 +181,16 @@
 //         }
 //     }
 // }
-
+.ErrorMessage{
+    color: red;
+    font-size: 11px;
+    margin-top: 4px;
+    text-align: left;
+}
+.scanFormText{
+    margin-top: 24px;
+    margin-bottom: 22px;
+}
 .mobilenav{
     h2{
         font-weight: 600;

@@ -82,7 +82,6 @@ span{
 }
 .betDropdown{
     height: 56px;
-    display: none;
     background: #60A626;
     width: 100%;
     position: absolute;
@@ -98,7 +97,11 @@ span{
 font-size: 16px;
 line-height: 24px;
         padding: 12px 20px !important;
+&:hover{
+    background-color: #518D1F !important;
+    border-radius:12px;
 
+}
     }
 }
 
@@ -107,6 +110,7 @@ line-height: 24px;
     background-color: #518D1F !important;
     border-radius:12px;
     padding: 12px 20px;
+    
 
 }
 ul{
@@ -151,4 +155,5 @@ ul{
 .Active:hover + .betDropdown,
 .betDropdown:hover {
   display: flex;
+  gap: 2px;
 }

@@ -9,6 +9,7 @@ const InputField = ({
   className = '',
   style,
   img,
+  hideEye,
   ...props
 }) => {
   const [inputType, setInputType] = useState(type);
@@ -18,8 +19,7 @@ const InputField = ({
   };
 
   return (
-    <div         style={style}
-    className={styles.input}>
+    <div style={style} className={styles.input}>
       <input
         type={inputType}
         value={value}
@@ -28,7 +28,11 @@ const InputField = ({
         className={`${className}`}
         {...props}
       />
-      {img && <img src={img} alt="" onClick={togglePasswordVisibility} />}
+      {inputType === 'password' ? (
+        <img src={img} alt="" onClick={togglePasswordVisibility} />
+      ) : (
+        inputType === 'text' && <img style={{width: '22px', marginRight: '10px'}} onClick={togglePasswordVisibility} src={hideEye} alt="" />
+      )}
     </div>
   );
 };

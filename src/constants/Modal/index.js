@@ -11,7 +11,7 @@ const Modal = ({
 }) => {
     const handleClickOverlay = (event) => {
         if (event.target === event.currentTarget) {
-            handleClose();
+            handleClose(event);
         }
     };
 

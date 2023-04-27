@@ -25,9 +25,8 @@
   
     @media only screen and (max-width: 767px) {
       max-width: 100%;
-      padding: 40px 30px;
+      padding: 48px 38px 0;
       justify-content: start;
-      gap: 12px;
     }
   }
   
@@ -38,9 +37,7 @@
     align-items: flex-start;
     // margin-top: 40px;
   
-    @media only screen and (max-width: 767px) {
-      margin-top: 8px;
-    }
+ 
   }
   .inputWrapper{
     display: flex;
@@ -80,3 +77,10 @@
     color: #79747E;
   }
   
+
+  .passwordError{
+    color: red;
+    font-size: 11px;
+    margin-top: -19px;
+    text-align: left;
+  }

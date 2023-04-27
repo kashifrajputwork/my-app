@@ -4,28 +4,41 @@ import AuthImage from "../../components/AuthImage/AuthImage";
 import styles from "./RecoverPassword.module.scss";
 import BackArrow from "../../assets/images/back-arrow.svg";
 import Eye from "../../assets/images/eye.svg";
+import HideEye from "../../assets/images/invisible.png";
 import InputField from "../../constants/Input";
 import Button from "../../constants/Button";
 import Mail from '../../assets/images/mail.svg'
 import Modal from "../../constants/Modal";
-import { toast } from "react-toastify";
-const RecoverPassword = () => {
-    const [showModal, setShowModal] = useState(false);
 
-    const handleClose = (e) => {
-        e.preventDefault();
-      setShowModal(!showModal);
-      toast.error("Account disabled, request a new access to your manager",{
-        toastClassName: 'custom-toast-container-class',
-        bodyClassName: 'custom-toast-body-class',
-      });
-    };
-    const handleOpen = (e) => {
-        e.preventDefault();
-      setShowModal(!showModal);
-    
-    };
-    
+const RecoverPassword = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
+  const [errorNewPassword, setErrorNewPassword] = useState("");
+  const [errorConfirmNewPassword, setErrorConfirmNewPassword] = useState("");
+
+  const handleClose = (e) => {
+    e.preventDefault();
+    setShowModal(!showModal);
+  };
+
+  const handleOpen = (e) => {
+    e.preventDefault();
+
+    if (newPassword === "") {
+      setErrorNewPassword("New password cannot be empty.");
+    } else {
+      setErrorNewPassword("");
+    }
+
+    if (confirmNewPassword === "") {
+      setErrorConfirmNewPassword("Confirm new password cannot be empty.");
+    } else {
+      setErrorConfirmNewPassword("");
+    }
+
+ 
+  };
   return (
     <div className={styles.RecoverPasswordWrapper}>
       <div className={styles.RecoverInner}>
@@ -48,31 +61,45 @@ const RecoverPassword = () => {
           </ul>
 
           <form className={styles.RecoverForm}>
-            <div className={styles.inputWrapper}>
-            <InputField type="password" placeholder="New Password" img={Eye} />
+        <div className={styles.inputWrapper}>
+          <InputField
+            type="password"
+            placeholder="New Password"
+            hideEye={HideEye}
+            img={Eye}
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+          {errorNewPassword && (
+            <p className={styles.errorMessage}>{errorNewPassword}</p>
+          )}
 
-<InputField
-  type="password"
-  placeholder="Confirm new Password"
-  img={Eye}
-/>
-            </div>
-          
-
-            <Button type="submit" text="Continue" onClick={handleOpen}/>
-          </form>
+          <InputField
+            type="password"
+            placeholder="Confirm new Password"
+            img={Eye}
+            hideEye={HideEye}
+            value={confirmNewPassword}
+            onChange={(e) => setConfirmNewPassword(e.target.value)}
+          />
+          {errorConfirmNewPassword && (
+            <p className={styles.errorMessage}>{errorConfirmNewPassword}</p>
+          )}
+        </div>
+        <Button type="submit" text="Continue" onClick={handleOpen} />
+      </form>
         </div>
       </div>
-      <Modal size="medium" show={showModal} handleClose={handleClose}>
+      {/* <Modal size="medium" show={showModal} handleClose={handleClose}>
                 <img src={Mail} alt='Email'/>
-                <h4>Email Sent</h4>
-                <p>Your new password has been sent to your manager’s email. Please, contact your manager to receive your password, then enter it on the login screen to access your account.</p>
+                <h4 className={styles.textModal}>Email Sent</h4>
+                <p style={{marginBottom: '16px'}}>Your new password has been sent to your manager’s email. Please, contact your manager to receive your password, then enter it on the login screen to access your account.</p>
                 <Button 
                     style={{width: "148px", margin: '4px 0 0 auto'}}
                     onClick={handleClose}
                     text='Ok, understood'
                 />
-            </Modal>
+            </Modal> */}
     </div>
   );
 };

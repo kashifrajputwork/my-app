@@ -11,7 +11,19 @@ import { toast } from 'react-toastify';
 const Bet = (props) => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
+  const [ticketCode, setTicketCode] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
+  const handleOpen = (e) => {
+    e.preventDefault();
+
+    if (ticketCode.trim() === "") {
+      setErrorMessage("Please enter a ticket code.");
+    } else {
+      setErrorMessage("");
+      setShowModal(true);
+    }
+  };
   function handleGoBack() {
     navigate("/");
   }
@@ -23,10 +35,7 @@ const Bet = (props) => {
 
    
   };
-  const handleOpen = (e) => {
-    e.preventDefault();
-    setShowModal(true);
-  };
+ 
   return (
     <>
     <div className={styles.top}>
@@ -41,13 +50,18 @@ const Bet = (props) => {
           {props.TicketCode ?
   <form className={styles.BetForm}>
   <InputField
-  style={{width: '334px'}}
+    style={{ width: '334px' }}
     type="text"
     placeholder="Ticket Code"
+    value={ticketCode}
+    onChange={(e) => setTicketCode(e.target.value)}
   />
+  {errorMessage && (
+    <p className={styles.ErrorMessage}>{errorMessage}</p>
+  )}
   <Button
-  style={{width: '334px'}}
-    text={props.CancelBet ? "Cancel" : "Create"}
+    style={{ width: '334px' }}
+    text={props.CancelBet ? 'Cancel' : 'Create'}
     onClick={handleOpen}
   />
 </form> : 
