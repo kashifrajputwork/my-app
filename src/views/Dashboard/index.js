@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState } from "react";
 import PannelHead from "../../components/PanelHead/PanelHead";
 import styles from "./Dashboard.module.scss";
 import { Tabs, Tab } from "../../components/Tabs";
@@ -12,6 +12,8 @@ import emoji from "../../assets/images/emoji_events.svg";
 import camera from "../../assets/images/camera.svg";
 import scan from "../../assets/images/scan_barcode.svg";
 import Frame from "../../assets/images/Frame.svg";
+import ModalTick from "../../assets/images/modalTick.svg";
+import closeIcon from "../../assets/images/closeIcon.svg";
 import Mobile from "./Mobile";
 import { useMediaQuery } from "react-responsive";
 import Button from "../../constants/Button";
@@ -64,7 +66,7 @@ const Dashboard = () => {
   };
 
   const handleClosePreBet = () => {
-    setShowPreModal(false);
+    setShowPreModal(true);
   };
 
   return (
@@ -259,7 +261,7 @@ const Dashboard = () => {
       )}
 
       <Modal size="mediumSmall" show={showModal} handleClose={handleCancelBet}>
-        <h4>Cancel bet</h4>
+        <h4 style={{lineHeight: '24px'}}>Cancel bet</h4>
         <p className={styles.ModalContent}>
           Are you sure you want to cancel the bet?
         </p>
@@ -287,13 +289,62 @@ const Dashboard = () => {
           />
         </div>
       </Modal>
-      <Modal show={showPreModal} handleClose={handleClosePreBet}>
+      {/* <Modal show={showPreModal} handleClose={handleClosePreBet}>
         <div className={styles.ModalBox}></div>
         <p>
           To collect the prize amount, please go to one of our physical stores
         </p>
         <Button text="Ok, understood" onClick={handleClosePreBet} />
+      </Modal> */}
+      <Modal size="mediumSmall" show={showPreModal} handleClose={handleClosePreBet}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}>
+        <img src={ModalTick} alt=''/>
+        <p style={{
+          fontWeight: '400',
+          fontSize: '22px',
+          lineHeight: '28px',
+          color: '#49454F',
+          margin: '24px 0 0 0'
+        }}>
+        Successfully registered bet
+        </p>
+        <Button style={{width: '264px'}} text="OK" onClick={handleClosePreBet} />
+        </div>
       </Modal>
+      <Modal size="mediumSmall" show={showPreModal} handleClose={handleClosePreBet}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}>
+        <img src={closeIcon} alt=''/>
+        <p style={{
+          fontWeight: '400',
+          fontSize: '22px',
+          lineHeight: '28px',
+          color: '#49454F',
+          margin: '24px 0 0 0'
+        }}>
+       Invalid ticket code
+        </p>
+        <Button style={{width: '264px'}} text="OK" onClick={handleClosePreBet} />
+        </div>
+      </Modal>
+          <Modal size="mediumSmall" show={showPreModal} handleClose={handleClosePreBet}>
+                <h4 style={{paddingLeft: '0',letterSpacing: '0.15px',color: '#49454F', fontSize: '16px', lineHeight: '24px'}}>Amount is too high</h4>
+                <p style={{textAlign: 'left',height: 'auto', padding: '4px 0 16px 0',fontWeight: 400, fontSize: '14px',letterSpacing: '0.25px',color: '#79747E'}}>To collect the prize amount, please go to one of our physical stores</p>
+                <Button 
+                    style={{width: "148px", margin: '4px 0 0 auto'}}
+                    // onClick={handleClose}
+                    text='OK, understood'
+                />
+            </Modal>
     </div>
   );
 };

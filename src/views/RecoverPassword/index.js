@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthImage from "../../components/AuthImage/AuthImage";
 import styles from "./RecoverPassword.module.scss";
 import BackArrow from "../../assets/images/back-arrow.svg";
@@ -16,6 +16,7 @@ const RecoverPassword = () => {
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [errorNewPassword, setErrorNewPassword] = useState("");
   const [errorConfirmNewPassword, setErrorConfirmNewPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleClose = (e) => {
     e.preventDefault();
@@ -37,8 +38,7 @@ const RecoverPassword = () => {
       setErrorConfirmNewPassword("");
     }
 
- 
-  };
+    navigate('/dashboard');  };
   return (
     <div className={styles.RecoverPasswordWrapper}>
       <div className={styles.RecoverInner}>

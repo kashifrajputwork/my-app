@@ -8,10 +8,14 @@ import styles from './Login.module.scss';
 import Button from '../../constants/Button';
 import InputField from '../../constants/Input';
 import AuthContext from '../../Context/AuthContext';
+import Modal from '../../constants/Modal';
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const [showPreModal, setShowPreModal] = useState(false);
+  const handleClosePreBet = () => {
+    setShowPreModal(true);
+  };
   const {
     checkUserType,
     setUserLoginText,
@@ -75,6 +79,14 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Modal size="mediumSmall" show={showPreModal} handleClose={handleClosePreBet}>
+                <h4 style={{paddingLeft: '0',fontWeight: '400',color: '#49454F', fontSize: '22px', lineHeight: '28px'}}>Account disabled</h4>
+                <Button 
+                    style={{width: "148px", margin: '4px 0 0 auto'}}
+                    // onClick={handleClose}
+                    text='OK, understood'
+                />
+            </Modal>
     </div>
   );
 };

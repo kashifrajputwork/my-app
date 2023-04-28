@@ -12,7 +12,7 @@ import ButtonTab from "../../components/button";
 
 const Mobile = () => {
   return (
-    <div style={{ padding: "0 20px" }}>
+    <div style={{ padding: "0 24px" }}>
       <ul className={styles.mobilenav}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <li>

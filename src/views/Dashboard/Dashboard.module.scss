@@ -107,7 +107,7 @@
     font-size: 14px;
     line-height: 19px;
     color: #79747E;
-    margin-top: 13px;
+    margin-top: 4px;
     letter-spacing: -0.02em;
 }
 
@@ -155,10 +155,15 @@
     justify-content: space-between;
     width: 100%;
     gap: 20px;
-    margin-top: 30px;
+    margin-top: 36px;
 
 }
-
+.textModal{
+    margin: 12px 0 4px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    padding-left: 4px;
+}
 .Table {
     overflow: auto;
     width: 100%;
